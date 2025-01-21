@@ -1,5 +1,3 @@
-version: "2"
-
 services:
  
   vproapp:
@@ -20,7 +18,7 @@ services:
     ports:
       - "3306:3306"
     volumes: 
-      - vprodbata:/var/lib/mysql
+      - vprodbdata:/var/lib/mysql
     environment:
       - MYSQL_ROOT_PASSWORD=vprodbpass
 
@@ -43,12 +41,12 @@ services:
   vpromq01:
     image: rabbitmq
     container_name: vpromq01
-    port:
+    ports:
       - "5672:5672"
     environment:
       - RABBITMQ_DEFAULT_USER=guest
       - RABBITMQ_DEFAULT_PASS=guest
 
 volumes:
-  vprodbata: {}
+  vprodbdata: {}
   vproappdata: {}
